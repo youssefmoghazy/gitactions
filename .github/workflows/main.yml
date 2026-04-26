@@ -1,19 +1,17 @@
 name: First Workflow
 on:
-  push:
-    branches: 
-      - main
+  schedule:
+    - cron: "50 14 * * *"
 jobs:
   example-job:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: print a welcome message
-        run: echo "Welcome to github action" 
-        
+        run: echo "Welcome to github action"
+
       - name: checkout repository
         uses: actions/checkout@v6.0.2
-        
+
       - name: list repository file
         run: ls -la
-        
